@@ -6,7 +6,8 @@ n números impares. Por ejemplo: sumaImpares 3 ❀ 1+3+5 ⇝ 9.-
 }
 -}
 
-sumaImpares :: Integer ->Integer 
-sumaImpares n 
+sumaImpares :: Integer -> Integer 
+sumaImpares n | n == 1 = 1
+              | n != 1 
 
 
