@@ -15,3 +15,8 @@ fibonacci n
   | n == 0 = 0
   | n == 1 = 1
   | otherwise = fibonacci (n - 1) + fibonacci (n - 2)
+
+fibonacciPatternMatching :: Integer -> Integer
+fibonacciPatternMatching 0 = 0
+fibonacciPatternMatching 1 = 1
+fibonacciPatternMatching n = fibonacciPatternMatching (n - 1) + fibonacciPatternMatching (n - 2)
