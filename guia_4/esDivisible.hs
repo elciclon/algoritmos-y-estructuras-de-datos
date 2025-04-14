@@ -9,10 +9,7 @@ naturales determinar si el primero es divisible por el segundo. No está permiti
 
 esDivisible :: Integer -> Integer -> Bool
 esDivisible a b
-  | resto a b == 0 = True
-  | otherwise = False
+  | a < b = False
+  | a == b = True
+  | otherwise = esDivisible (a - b) b
 
-resto :: Integer -> Integer -> Integer
-resto a b
-  | a < b = a
-  | otherwise = resto (a - b) b
