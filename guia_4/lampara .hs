@@ -6,4 +6,4 @@ lampara (a, x) | a == 'A' && x == 1 = 'P'
 
 lampara2 :: Bool -> Int -> Bool
 lampara2 e p | p == 0 = e
-            | p > 0 = lampara (not e) (p-1)
+             |p > 0 = lampara2 (not e) (p-1)
