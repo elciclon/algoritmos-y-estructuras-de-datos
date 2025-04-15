@@ -1,13 +1,12 @@
 {-Ejercicio 4. Especificar e implementar la función sumaImpares :: Integer ->Integer que dado n ∈ N sume los primeros
 n números impares. Por ejemplo: sumaImpares 3 ❀ 1+3+5 ⇝ 9.-
 {problema sumaImpares{n:N}:N
-          requiere:{True}  
+          requiere:{True}
           asegura: {res = suma de los primeros n números impares}
 }
 -}
 
-sumaImpares :: Integer -> Integer 
-sumaImpares n | n == 1 = 1
-              | otherwise = 2 * n - 1 + sumaImpares (n - 1)
-
-
+sumaImpares :: Integer -> Integer
+sumaImpares n
+  | n == 1 = 1
+  | otherwise = 2 * n - 1 + sumaImpares (n - 1)
