@@ -5,6 +5,7 @@ problema f3(q:R, n:Z): R {
     }
 -}
 f3 :: Float -> Int -> Float
+f3 q 0 = 1
 f3 q n = f2 q (2 * n)
 
 f2 :: Float -> Int -> Float
