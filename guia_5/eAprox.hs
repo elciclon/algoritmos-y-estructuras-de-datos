@@ -7,6 +7,9 @@ problema eAprox(n:N): R {
     asegura:{resultado=valor aproximado de n}
 }
 -}
+e :: Float
+e = eAprox 9
+
 eAprox :: Integer -> Float
 eAprox 0 = 1
 eAprox n = (1 / (fromInteger (factorial n)) + eAprox (n - 1))
