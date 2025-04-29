@@ -4,7 +4,7 @@ eliminarRepetidos :: (Eq t) => [t] -> [t]
 eliminarRepetidos (x : []) = [x]
 eliminarRepetidos (x : xs)
   | pertenece x xs == True = x : eliminarRepetidos (quitarTodos x xs)
-  | otherwise = eliminarRepetidos xs
+  | otherwise = x : eliminarRepetidos xs
 
 quitarTodos :: (Eq t) => t -> [t] -> [t]
 quitarTodos e (x : [])
