@@ -15,3 +15,4 @@ quitar x xs
   | xs == [x] = []
   | x == head xs = tail xs
   | otherwise = head xs : (quitar x (tail xs))
+
