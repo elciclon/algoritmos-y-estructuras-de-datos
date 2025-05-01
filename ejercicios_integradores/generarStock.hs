@@ -2,10 +2,12 @@
 -- [("madera", 1),("clavo",2),("pala",1)]
 
 -- generarStock :: [String] -> [(String, Int)]
--- generarStock mercaderia | head filtrarRepetidos mercaderia
+-- generarStock mercaderia = [head (filtrarRepetidos mercaderia): crearTuplas (head filtrarRepetidos) (tail filtrarRepetidos )]
+iterador :: [String] -> [String] -> (String, Int)
+iterador filtrados mercaderia = crearTuplas (head filtrados, mercaderia)
 
-crearTuplas :: String -> [String] -> (String, Int)
-crearTuplas producto mercaderia = (producto, contarProducto producto mercaderia)
+crearTuplas :: (String, [String]) -> (String, Int)
+crearTuplas (producto, mercaderia) = (producto, contarProducto producto mercaderia)
 
 contarProducto :: String -> [String] -> Int
 contarProducto producto (x : [])
