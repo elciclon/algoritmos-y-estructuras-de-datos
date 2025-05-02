@@ -1,10 +1,11 @@
 -- ["madera", "clavo", "pala", "clavo"]
 -- [("madera", 1),("clavo",2),("pala",1)]
+generarStock :: [String] -> [(String, Int)]
+generarStock mercaderia = generarStockAux (filtrarRepetidos mercaderia) mercaderia
 
--- generarStock :: [String] -> [(String, Int)]
--- generarStock mercaderia = [head (filtrarRepetidos mercaderia): crearTuplas (head filtrarRepetidos) (tail filtrarRepetidos )]
-iterador :: [String] -> [String] -> (String, Int)
-iterador filtrados mercaderia = crearTuplas (head filtrados, mercaderia)
+generarStockAux :: [String] -> [String] -> [(String, Int)]
+generarStockAux (producto : []) mercaderia = [crearTuplas (producto, mercaderia)]
+generarStockAux (producto : filtrados) mercaderia = crearTuplas (producto, mercaderia) : generarStockAux filtrados mercaderia
 
 crearTuplas :: (String, [String]) -> (String, Int)
 crearTuplas (producto, mercaderia) = (producto, contarProducto producto mercaderia)
@@ -20,7 +21,7 @@ contarProducto producto mercaderia
 filtrarRepetidos :: [String] -> [String]
 filtrarRepetidos (x : []) = [x]
 filtrarRepetidos (pal : xs)
-  | pertenece pal xs == True = pal : quitar pal xs
+  | pertenece pal xs == True = filtrarRepetidos (pal : quitar pal xs)
   | otherwise = pal : filtrarRepetidos xs
 
 quitar :: String -> [String] -> [String]
