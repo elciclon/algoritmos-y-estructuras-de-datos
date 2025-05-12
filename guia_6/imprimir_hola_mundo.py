@@ -1,4 +1,4 @@
-def imprimir_hola_mundo():
+def imprimir_hola_mundo() -> None:
     print("Hola mundo!")
 
 

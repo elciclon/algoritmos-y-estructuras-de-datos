@@ -1,4 +1,4 @@
-def factorial_de_dos():
+def factorial_de_dos() -> None:
     print(2 * 1)
 
 

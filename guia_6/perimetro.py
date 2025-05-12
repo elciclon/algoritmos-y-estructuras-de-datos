@@ -1,7 +1,7 @@
 import math
 
 
-def perimetro():
+def perimetro() -> None:
     print(2 * math.pi)
 
 

@@ -1,7 +1,7 @@
 from math import sqrt
 
 
-def raizDe2():
+def raizDe2() -> None:
     print(round(sqrt(2), 2))
 
 
