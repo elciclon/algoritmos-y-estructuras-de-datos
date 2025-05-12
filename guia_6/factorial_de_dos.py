@@ -1,5 +1,5 @@
 def factorial_de_dos():
-    print(1 + 1)
+    print(2 * 1)
 
 
 factorial_de_dos()
