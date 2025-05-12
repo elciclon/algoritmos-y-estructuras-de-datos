@@ -2,7 +2,7 @@ from math import sqrt
 
 
 def raizDe2() -> None:
-    print(round(sqrt(2), 2))
+    return round(sqrt(2), 2)
 
-raizDe2()
 
+print(raizDe2())
