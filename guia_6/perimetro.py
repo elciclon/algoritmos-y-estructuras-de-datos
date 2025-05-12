@@ -1,8 +1,7 @@
-import math
-
+from math import pi
 
 def perimetro() -> float:
-    print(2 * math.pi)
+    return 2 * pi
 
 
-perimetro()
+print(perimetro())
