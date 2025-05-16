@@ -1,0 +1,10 @@
+x=5
+//Estado a x == 5
+y=7
+//estado b y == 7
+z= x + y
+//estado c
+// vale z == x@a + y@b
+y = z * 2
+//estado d
+//vale y == z@c * 2

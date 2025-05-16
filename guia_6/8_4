@@ -1,0 +1,6 @@
+x=False
+//Estado a x == False
+res = not(x)
+//Estado b
+//vale res == not(x@a)
+True

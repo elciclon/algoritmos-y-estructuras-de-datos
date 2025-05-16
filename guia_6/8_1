@@ -1,0 +1,8 @@
+x=5
+//Estado a x == 5
+y=7
+//estado b y == 7
+x = x + y
+//estado c
+//vale x == x@a + y@b
+

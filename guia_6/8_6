@@ -1,0 +1,12 @@
+x=True
+// Estado a x == True
+y=False
+// Estado b y == False
+res=x and y
+//Estado c
+//vale res == x@a and y@b
+x == res and x
+//Estado d
+//vale x == res@c and x@a
+
+False

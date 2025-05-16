@@ -1,0 +1,11 @@
+x=5
+//Estado a x == 5
+y=7
+//estado b y == 7
+x="hora"
+//estado c
+//vale x == "hora"
+y = x * 2
+//estado d
+//vale y == x@c * 2
+"horahora"
