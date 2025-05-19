@@ -4,8 +4,8 @@ def viaje_hasta_Aristoteles(partida: int) -> None:
         print(f"Viajó 20 años al pasado, estamos en el año: {partida}")
         partida -= 20
 
-
 viaje_hasta_Aristoteles(2025)
+
 
 
 def viaje_hasta_Aristoteles_2(partida: int) -> None:
