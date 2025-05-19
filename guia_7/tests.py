@@ -85,14 +85,13 @@ class Test_suma_total(unittest.TestCase):
         self.assertNotEqual(suma_total([1, -2,3, -5,10]), 8)
         
 class Test_ceros_posiciones_pares(unittest.TestCase):
+    lista :list[int] = [2,3,4,5,6,7,8,9]
     def test_ceros_en_posiciones_pares_modifica_len(self):
-        lista = [2,3,4,5,6,7,8,9]
-        ceros_en_posiciones_pares(lista)
-        self.assertEqual(len(lista), 8)
+        ceros_en_posiciones_pares(self.lista)
+        self.assertEqual(len(self.lista), 8)
     def test_ceros_en_posiciones_pares(self):
-        lista = [2,3,4,5,6,7,8,9]
-        ceros_en_posiciones_pares(lista)
-        self.assertEqual(lista, [0,3,0,5,0,7,0,9])
+        ceros_en_posiciones_pares(self.lista)
+        self.assertEqual(self.lista, [0,3,0,5,0,7,0,9])
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
