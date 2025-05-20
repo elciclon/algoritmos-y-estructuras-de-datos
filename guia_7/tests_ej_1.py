@@ -10,6 +10,7 @@ from ordenados import *
 from pos_maximo import *
 from pos_minimo import *
 from long_mayor_a_siete import *
+from es_palindromo import *
 
 
 class Test_pertenece(unittest.TestCase):
@@ -208,6 +209,20 @@ class Test_long_mayor_a_siete(unittest.TestCase):
                 ["termo", "gato", "murcielago", "tener", "jirafa", "murcielago"]
             )
         )
+
+
+class Test_es_palindromo(unittest.TestCase):
+    def test_es_palindromo_lista_vacia(self):
+        self.assertTrue(es_palindromo())
+
+    def test_es_palindromo_una_letra(self):
+        self.assertTrue(es_palindromo("a"))
+
+    def test_es_palindromo(self):
+        self.assertTrue(es_palindromo("anilina"))
+
+    def test_es_palindromo_lista_vacia(self):
+        self.assertFalse(es_palindromo("tempera"))
 
 
 if __name__ == "__main__":
