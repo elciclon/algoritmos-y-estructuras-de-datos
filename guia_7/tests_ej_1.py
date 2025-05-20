@@ -8,6 +8,8 @@ from maximo import *
 from minimo import *
 from ordenados import *
 from pos_maximo import *
+from pos_minimo import *
+from long_mayor_a_siete import *
 
 
 class Test_pertenece(unittest.TestCase):
@@ -171,6 +173,41 @@ class Test_pos_maximo(unittest.TestCase):
 
     def test_pos_maximo(self):
         self.assertEqual(pos_maximo([2, 4, 7, 4, -3, -8, 0]), 2)
+
+    def test_pos_maximo_repetidos(self):
+        self.assertEqual(pos_maximo([2, 4, 7, 4, -3, -8, 0, 7]), 2)
+
+
+class Test_pos_minimo(unittest.TestCase):
+    def test_pos_minimo_lista_vacia(self):
+        self.assertEqual(pos_minimo([]), -1)
+
+    def test_pos_minimo_un_elemento(self):
+        self.assertEqual(pos_minimo([-1]), 0)
+
+    def test_pos_minimo(self):
+        self.assertEqual(pos_minimo([2, 4, 7, 4, -3, -8, 0]), 5)
+
+    def test_pos_maximo_repetidos(self):
+        self.assertEqual(pos_minimo([2, 4, 7, 4, -3, -8, 0, -8]), 7)
+
+
+class Test_long_mayor_a_siete(unittest.TestCase):
+    def test_long_mayor_a_siete(self):
+        self.assertFalse(long_mayor_a_siete(["termo", "gato", "tener", "jirafa"]))
+        self.assertTrue(
+            long_mayor_a_siete(["termo", "gato", "murcielago", "tener", "jirafa"])
+        )
+
+    def test_long_mayor_a_siete_unico_elemento(self):
+        self.assertTrue(long_mayor_a_siete(["murcielago"]))
+
+    def test_long_mayor_a_siete_ultimo(self):
+        self.assertTrue(
+            long_mayor_a_siete(
+                ["termo", "gato", "murcielago", "tener", "jirafa", "murcielago"]
+            )
+        )
 
 
 if __name__ == "__main__":
