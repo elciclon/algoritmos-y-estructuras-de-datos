@@ -6,6 +6,8 @@ from suma_total import *
 from ceros_en_posiciones_pares import *
 from maximo import *
 from minimo import *
+from ordenados import *
+from pos_maximo import *
 
 
 class Test_pertenece(unittest.TestCase):
@@ -114,9 +116,6 @@ class Test_maximo(unittest.TestCase):
         maximo(self.lista)
         self.assertEqual(self.lista, [2, 3, 4, 5, 15, 6, 7, 8, 9])
 
-    def test_maximo_lista_vacia(self):
-        self.assertEqual(maximo([]), 0)
-
     def test_maximo_un_elemento(self):
         self.assertEqual(maximo([3]), 3)
 
@@ -142,6 +141,36 @@ class Test_minimo(unittest.TestCase):
 
     def test_maximo_negativo(self):
         self.assertEqual(minimo([-3, -6, -2, 0, -15, -22]), -22)
+
+
+class Test_ordenados(unittest.TestCase):
+    lista: list[int] = [2, 3, 4, 5, 15, 6, 7, 8, 9]
+
+    def test_ordenados_modifica_lista(self):
+        ordenados(self.lista)
+        self.assertEqual(self.lista, [2, 3, 4, 5, 15, 6, 7, 8, 9])
+
+    def test_ordenados_lista_vacia(self):
+        self.assertTrue(ordenados([]))
+
+    def test_ordenados(self):
+        self.assertTrue(ordenados([-8, -3, 0, 2, 4, 7]))
+        self.assertFalse(ordenados([2, 4, 7, 4, -3, -8, 0]))
+
+    def test_ordenados_repetidos(self):
+        self.assertTrue(ordenados([-8, -3, 0, 2, 4, 4, 7]))
+        self.assertFalse(ordenados([2, 4, 7, 4, -3, -8, 0]))
+
+
+class Test_pos_maximo(unittest.TestCase):
+    def test_pos_maximo_lista_vacia(self):
+        self.assertEqual(pos_maximo([]), -1)
+
+    def test_pos_maximo_un_elemento(self):
+        self.assertEqual(pos_maximo([-1]), 0)
+
+    def test_pos_maximo(self):
+        self.assertEqual(pos_maximo([2, 4, 7, 4, -3, -8, 0]), 2)
 
 
 if __name__ == "__main__":

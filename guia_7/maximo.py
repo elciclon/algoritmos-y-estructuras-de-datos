@@ -1,5 +1,5 @@
 def maximo(s: list[int]) -> int:
-    maximo: int = 0
+    maximo: int = s[0]
     for elem in s:
         if elem > maximo:
             maximo = elem
