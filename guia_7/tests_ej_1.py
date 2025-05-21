@@ -1,6 +1,6 @@
 import unittest
 
-from pertenece import pertenece, pertenece_2, pertenece_3
+from pertenece import *
 from divide_a_todos import *
 from suma_total import *
 from ceros_en_posiciones_pares import *
@@ -11,6 +11,7 @@ from pos_maximo import *
 from pos_minimo import *
 from long_mayor_a_siete import *
 from es_palindromo import *
+from cantidad_digitos_impares import *
 
 
 class Test_pertenece(unittest.TestCase):
@@ -224,6 +225,16 @@ class Test_es_palindromo(unittest.TestCase):
     def test_es_palindromo_lista_vacia(self):
         self.assertFalse(es_palindromo("tempera"))
 
+class Test_cantidad_digitos_impares(unittest.TestCase):
+    def test_cantidad_digitos_impares(self):
+        self.assertEqual(cantidad_digitos_impares([57, 2383, 812,246]), 5)
+    def test_cantidad_digitos_impares_cero(self):
+        self.assertEqual(cantidad_digitos_impares([0]), 0)
+    def test_cantidad_digitos_impares_lista_vacia(self):
+        self.assertEqual(cantidad_digitos_impares([]), 0)
+    def test_cantidad_digitos_impares_pares(self):
+        self.assertEqual(cantidad_digitos_impares([28, 2282, 842,246]), 0)
+    
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
