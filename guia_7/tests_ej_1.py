@@ -11,6 +11,8 @@ from pos_maximo import *
 from pos_minimo import *
 from long_mayor_a_siete import *
 from es_palindromo import *
+from iguales_consecutivos import *
+from vocales_distintas import *
 
 
 class Test_pertenece(unittest.TestCase):
@@ -223,6 +225,26 @@ class Test_es_palindromo(unittest.TestCase):
 
     def test_es_palindromo_lista_vacia(self):
         self.assertFalse(es_palindromo("tempera"))
+
+
+class Test_iguales_consecutivos(unittest.TestCase):
+    def test_iguales_consecutivos_lista_vacia(self):
+        self.assertFalse(iguales_consecutivos([]))
+
+    def test_iguales_consecutivos_un_elemento(self):
+        self.assertFalse(iguales_consecutivos([2]))
+
+    def test_iguales_consecutivos(self):
+        self.assertTrue(iguales_consecutivos([3, 6, 3, 2, 6, 8, 6, 3, 9, 9, 9]))
+        self.assertFalse(iguales_consecutivos([3, 6, 3, 2, 6, 8, 6, 3, 9, 9]))
+
+
+class Test_vocales_distintas(unittest.TestCase):
+    def test_vocales_distintas(self):
+        self.assertTrue(vocales_distintas("caleidoscopio"))
+        self.assertTrue(vocales_distintas("murcielago"))
+        self.assertFalse(vocales_distintas("anana"))
+        self.assertFalse(vocales_distintas("abracadabra"))
 
 
 if __name__ == "__main__":
