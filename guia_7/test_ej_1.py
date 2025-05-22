@@ -14,7 +14,7 @@ from es_palindromo import *
 from iguales_consecutivos import *
 from vocales_distintas import *
 from cantidad_digitos_impares import *
-
+from pos_secuencia_ordenada_mas_larga import *
 
 
 class Test_pertenece(unittest.TestCase):
@@ -228,16 +228,20 @@ class Test_es_palindromo(unittest.TestCase):
     def test_es_palindromo_lista_vacia(self):
         self.assertFalse(es_palindromo("tempera"))
 
+
 class Test_cantidad_digitos_impares(unittest.TestCase):
     def test_cantidad_digitos_impares(self):
-        self.assertEqual(cantidad_digitos_impares([57, 2383, 812,246]), 5)
+        self.assertEqual(cantidad_digitos_impares([57, 2383, 812, 246]), 5)
+
     def test_cantidad_digitos_impares_cero(self):
         self.assertEqual(cantidad_digitos_impares([0]), 0)
+
     def test_cantidad_digitos_impares_lista_vacia(self):
         self.assertEqual(cantidad_digitos_impares([]), 0)
+
     def test_cantidad_digitos_impares_pares(self):
-        self.assertEqual(cantidad_digitos_impares([28, 2282, 842,246]), 0)
-    
+        self.assertEqual(cantidad_digitos_impares([28, 2282, 842, 246]), 0)
+
 
 class Test_iguales_consecutivos(unittest.TestCase):
     def test_iguales_consecutivos_lista_vacia(self):
@@ -257,6 +261,17 @@ class Test_vocales_distintas(unittest.TestCase):
         self.assertTrue(vocales_distintas("murcielago"))
         self.assertFalse(vocales_distintas("anana"))
         self.assertFalse(vocales_distintas("abracadabra"))
+
+
+class Test_pos_secuencia_ordenada_mas_larga(unittest.TestCase):
+    def test_pos_secuencia_ordenada_mas_larga_unico_elemento(self):
+        self.assertEqual(pos_secuencia_ordenada_mas_larga([1]), 0)
+
+    def test_pos_secuencia_ordenada_mas_larga_una_secuencia(self):
+        self.assertEqual(pos_secuencia_ordenada_mas_larga([2, 1, 2, 3, 1]), 1)
+
+    def test_pos_secuencia_ordenada_mas_larga_dos_secuencias(self):
+        self.assertEqual(pos_secuencia_ordenada_mas_larga([2, 1, 2, 3, 1, 3, 5, 6]), 4)
 
 
 if __name__ == "__main__":

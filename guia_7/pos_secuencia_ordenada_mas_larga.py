@@ -1,9 +1,13 @@
 def pos_secuencia_ordenada_mas_larga(s: list[int]) -> int:
     indice: int = 0
-    secuencia_ordenada: list[int] = []
-    secuencia_ordenada_mas_larg: list[int] = []
-    for i in range(0, len(s)):
-        if s[i] >= s[i + 1]:
-            continue
+    longitud: int = 0
+    longitud_maxima: int = 0
+    for i in range(0, len(s) - 1):
+        if s[i] < s[i + 1]:
+            longitud += 1
+            if longitud > longitud_maxima:
+                longitud_maxima = longitud
+                indice = i + 1 - longitud
         else:
-            secuencia_ordenada.append(s[i])
+            longitud = 0
+    return indice
