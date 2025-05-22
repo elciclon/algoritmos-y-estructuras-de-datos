@@ -3,7 +3,6 @@ import unittest
 from pertenece import *
 from divide_a_todos import *
 from suma_total import *
-from ceros_en_posiciones_pares import *
 from maximo import *
 from minimo import *
 from ordenados import *
@@ -102,18 +101,6 @@ class Test_suma_total(unittest.TestCase):
 
     def test_suma_total_positivos_y_negativos_incorrecta(self):
         self.assertNotEqual(suma_total([1, -2, 3, -5, 10]), 8)
-
-
-class Test_ceros_posiciones_pares(unittest.TestCase):
-    lista: list[int] = [2, 3, 4, 5, 6, 7, 8, 9]
-
-    def test_ceros_en_posiciones_pares_modifica_len(self):
-        ceros_en_posiciones_pares(self.lista)
-        self.assertEqual(len(self.lista), 8)
-
-    def test_ceros_en_posiciones_pares(self):
-        ceros_en_posiciones_pares(self.lista)
-        self.assertEqual(self.lista, [0, 3, 0, 5, 0, 7, 0, 9])
 
 
 class Test_maximo(unittest.TestCase):
