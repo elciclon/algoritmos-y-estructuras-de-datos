@@ -1,16 +1,20 @@
 import unittest
 
-from columnas_ordenadas import *
+from resultado_materia import *
 
-class Test_columnas_ordenadas(unittest.TestCase):
-    matriz_ordenada:list[list[int]] = [[1,2,3],[2,3,4],[3,4,5]]
-    matriz_desordenada:list[list[int]] = [[2,3,4],[1,2,3],[3,4,5]]
-    def test_columnas_ordenadas_longitud(self):
-        longitud = len(columnas_ordenadas(self.matriz_ordenada))
-        self.assertEqual(len(columnas_ordenadas(self.matriz_ordenada)), longitud)
 
-    def test_columnas_ordenadas(self):
-        self.assertEqual(columnas_ordenadas(self.matriz_ordenada), [True, True,True])
-        self.assertNotEqual(columnas_ordenadas(self.matriz_desordenada), [True, True,True])
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+class Test_resultado_materia(unittest.TestCase):
+    def test_resultado_materia_vacio(self):
+        self.assertEqual(resultado_materia([]), 3)
+
+    def test_resultado_materia_tiene_3(self):
+        self.assertEqual(resultado_materia([10, 10, 3, 10]), 3)
+
+    def test_resultado_materia_aprobado(self):
+        self.assertEqual(resultado_materia([4, 5, 8, 6]), 2)
+
+    def test_resultado_materia_promocionado(self):
+        self.assertEqual(resultado_materia([10, 10, 4, 10]), 1)
+
+    def test_resultado_materia_desastre(self):
+        self.assertEqual(resultado_materia([0, 0, 0, 0]), 3)
