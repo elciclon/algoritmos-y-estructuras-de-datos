@@ -12,5 +12,6 @@ class Test_saldo_actual(unittest.TestCase):
             saldo_actual([("I", 200), ("R", 400), ("R", 1000), ("I", 300)]), -900
         )
 
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
