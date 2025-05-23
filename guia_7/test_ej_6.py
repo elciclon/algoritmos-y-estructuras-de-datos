@@ -1,16 +1,67 @@
 import unittest
 
 from columnas_ordenadas import *
+from es_matriz import *
+from filas_ordenadas import *
+
 
 class Test_columnas_ordenadas(unittest.TestCase):
-    matriz_ordenada:list[list[int]] = [[1,2,3],[2,3,4],[3,4,5]]
-    matriz_desordenada:list[list[int]] = [[2,3,4],[1,2,3],[3,4,5]]
+    matriz_ordenada: list[list[int]] = [[1, 2, 3], [2, 3, 4], [3, 4, 5]]
+    matriz_desordenada: list[list[int]] = [[2, 3, 4], [1, 2, 3], [3, 4, 5]]
+
     def test_columnas_ordenadas_longitud(self):
         longitud = len(columnas_ordenadas(self.matriz_ordenada))
         self.assertEqual(len(columnas_ordenadas(self.matriz_ordenada)), longitud)
 
     def test_columnas_ordenadas(self):
-        self.assertEqual(columnas_ordenadas(self.matriz_ordenada), [True, True,True])
-        self.assertNotEqual(columnas_ordenadas(self.matriz_desordenada), [True, True,True])
-if __name__ == '__main__':
+        self.assertEqual(columnas_ordenadas(self.matriz_ordenada), [True, True, True])
+        self.assertNotEqual(
+            columnas_ordenadas(self.matriz_desordenada), [True, True, True]
+        )
+
+
+class Test_es_matriz(unittest.TestCase):
+    matriz: list[list[int]] = [[1, 2, 3], [2, 3, 4], [3, 4, 5]]
+    no_matriz: list[list[int]] = [[1, 2, 3], [2, 3, 4], [3, 4, 5], [7, 8, 0, 9]]
+    matriz_desordenada: list[list[int]] = [[2, 3, 4], [1, 2, 3], [3, 4, 5]]
+
+    def test_es_matriz_vacia(self):
+        self.assertFalse(es_matriz([]))
+
+    def test_es_matriz(self):
+        self.assertFalse(es_matriz(self.no_matriz))
+        self.assertTrue(es_matriz(self.matriz))
+
+
+class Test_filas_ordenadas(unittest.TestCase):
+    lista_de_numeros: list[list[int]] = [
+        [
+            1,
+            2,
+            3,
+        ],
+        [2, 3, 4],
+        [3, 4, 5],
+    ]
+    lista_de_numeros_desordenados: list[list[int]] = [
+        [
+            1,
+            3,
+            2,
+        ],
+        [2, 3, 4],
+        [3, 4, 5],
+    ]
+    res: list[bool] = []
+
+    def test_filas_ordenadas(self):
+        filas_ordenadas(self.lista_de_numeros, self.res)
+        self.assertEqual(self.res, [True, True, True])
+        self.res = []
+        filas_ordenadas(self.lista_de_numeros_desordenados, self.res)
+        self.assertEqual(self.res, [False, True, True])
+        self.res = []
+
+
+if __name__ == "__main__":
     unittest.main(verbosity=2)
