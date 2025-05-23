@@ -101,18 +101,44 @@ class Test_transponer(unittest.TestCase):
 
 
 class Test_quien_gana_el_tateti(unittest.TestCase):
+    matriz_1: list[list[str]] = [["O", "X", "O"], ["X", " ", "O"], [" ", "X", "O"]]
+    matriz_2: list[list[str]] = [["O", "X", " "], ["O", "X", " "], ["O", " ", " "]]
+    matriz_3: list[list[str]] = [["O", "O", "O"], ["X", "X", " "], [" ", " ", " "]]
+    matriz_4: list[list[str]] = [["O", "X", " "], [" ", "O", "X"], [" ", " ", "O"]]
+    matriz_5: list[list[str]] = [[" ", " ", "O"], ["X", "O", "X"], ["O", " ", " "]]
+
     def test_chequea_verticales(self):
-        self.assertTrue(
-            chequea_verticales([["O", "X", "O"], ["X", " ", "O"], [" ", "X", "O"]], "O")
+        self.assertTrue(chequea_verticales(self.matriz_1, "O"))
+        self.assertFalse(chequea_verticales(self.matriz_1, "X"))
+        self.assertTrue(chequea_verticales(self.matriz_2, "O"))
+        self.assertFalse(chequea_verticales(self.matriz_2, "X"))
+
+    def test_chequea_horizontales(self):
+        self.assertTrue(chequea_horizontales(self.matriz_3, "O"))
+        self.assertFalse(chequea_horizontales(self.matriz_3, "X"))
+
+    def test_chequea_diagonales(self):
+        self.assertTrue(chequea_diagonales(self.matriz_4, "O"))
+        self.assertFalse(chequea_diagonales(self.matriz_4, "X"))
+        self.assertTrue(chequea_diagonales(self.matriz_5, "O"))
+        self.assertFalse(chequea_diagonales(self.matriz_5, "X"))
+
+    def test_quien_gana_tateti_O(self):
+        self.assertEqual(quien_gana_tateti(self.matriz_1), 0)
+        self.assertEqual(quien_gana_tateti(self.matriz_2), 0)
+        self.assertEqual(quien_gana_tateti(self.matriz_3), 0)
+        self.assertEqual(quien_gana_tateti(self.matriz_4), 0)
+        self.assertEqual(quien_gana_tateti(self.matriz_5), 0)
+        self.assertFalse(quien_gana_tateti(self.matriz_2), 1)
+
+    def test_quien_gana_tateti_X(self):
+        self.assertEqual(
+            quien_gana_tateti([[" ", " ", "X"], ["O", "X", "O"], ["X", " ", " "]]), 1
         )
-        self.assertFalse(
-            chequea_verticales([["O", "X", "O"], ["X", " ", "O"], [" ", "X", "O"]], "X")
-        )
-        self.assertTrue(
-            chequea_verticales([["O", "X", " "], ["O", "X", " "], ["O", " ", " "]], "O")
-        )
-        self.assertFalse(
-            chequea_verticales([["O", "X", " "], ["O", "X", " "], ["O", " ", " "]], "X")
+
+    def test_quien_gana_tateti_nadie(self):
+        self.assertEqual(
+            quien_gana_tateti([[" ", " ", " "], [" ", "O", "X"], ["X", "O", "O"]]), 2
         )
 
 
