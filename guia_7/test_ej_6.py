@@ -5,6 +5,7 @@ from es_matriz import *
 from filas_ordenadas import *
 from columna import *
 from transponer import *
+from quien_gana_tateti import *
 
 
 class Test_columna(unittest.TestCase):
@@ -97,6 +98,22 @@ class Test_transponer(unittest.TestCase):
     def test_transponer(self):
         self.assertEqual(transponer(self.matriz1), self.matriz1)
         self.assertEqual(transponer(self.matriz2), [[1, 2, 3], [3, 3, 4], [2, 4, 5]])
+
+
+class Test_quien_gana_el_tateti(unittest.TestCase):
+    def test_chequea_verticales(self):
+        self.assertTrue(
+            chequea_verticales([["O", "X", "O"], ["X", " ", "O"], [" ", "X", "O"]], "O")
+        )
+        self.assertFalse(
+            chequea_verticales([["O", "X", "O"], ["X", " ", "O"], [" ", "X", "O"]], "X")
+        )
+        self.assertTrue(
+            chequea_verticales([["O", "X", " "], ["O", "X", " "], ["O", " ", " "]], "O")
+        )
+        self.assertFalse(
+            chequea_verticales([["O", "X", " "], ["O", "X", " "], ["O", " ", " "]], "X")
+        )
 
 
 if __name__ == "__main__":
