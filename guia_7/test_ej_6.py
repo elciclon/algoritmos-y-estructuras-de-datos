@@ -3,6 +3,17 @@ import unittest
 from columnas_ordenadas import *
 from es_matriz import *
 from filas_ordenadas import *
+from columna import *
+from transponer import *
+
+
+class Test_columna(unittest.TestCase):
+    matriz: list[list[int]] = [[1, 2, 3], [2, 3, 4], [3, 4, 5]]
+    matriz_2: list[list[int]] = [[2, 3, 4], [1, 2, 3], [3, 4, 5]]
+
+    def test_columna(self):
+        self.assertEqual(columna(self.matriz, 1), [2, 3, 4])
+        self.assertEqual(columna(self.matriz_2, 2), [4, 3, 5])
 
 
 class Test_columnas_ordenadas(unittest.TestCase):
@@ -61,6 +72,31 @@ class Test_filas_ordenadas(unittest.TestCase):
         filas_ordenadas(self.lista_de_numeros_desordenados, self.res)
         self.assertEqual(self.res, [False, True, True])
         self.res = []
+
+
+class Test_transponer(unittest.TestCase):
+    matriz1: list[list[int]] = [
+        [
+            1,
+            2,
+            3,
+        ],
+        [2, 3, 4],
+        [3, 4, 5],
+    ]
+    matriz2: list[list[int]] = [
+        [
+            1,
+            3,
+            2,
+        ],
+        [2, 3, 4],
+        [3, 4, 5],
+    ]
+
+    def test_transponer(self):
+        self.assertEqual(transponer(self.matriz1), self.matriz1)
+        self.assertEqual(transponer(self.matriz2), [[1, 2, 3], [3, 3, 4], [2, 4, 5]])
 
 
 if __name__ == "__main__":
