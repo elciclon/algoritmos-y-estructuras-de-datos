@@ -1,10 +1,10 @@
+from typing import TextIO
+
 def contar_lineas(nombre_archivo: str) -> int:
-    archivo = open(nombre_archivo, "r", encoding="utf-8")
-    contador: int = 0
-    for linea in archivo:
-        contador += 1
+    archivo: TextIO = open(nombre_archivo, "r", eoncoding="utf-8")
+    res: int = len(archivo.readlines())
     archivo.close()
-    return contador
+    return res
 
 
     
