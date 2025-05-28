@@ -31,3 +31,8 @@ def calcular_promedio_por_estudiante_v2(notas: list[tuple[str, float]]) -> dict[
         else:
             suma_notas[estudiante] += nota
             cantidad_notas[estudiante] += 1
+
+    promedios: dict[str, float] = {}
+    for estudiante in suma_notas.keys():
+        promedios[estudiante] = suma_notas[estudiante] / cantidad_notas[estudiante]
+    return promedios
