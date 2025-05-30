@@ -8,4 +8,7 @@ def generar_nros_al_azar(cantidad: int, desde: int, hasta: int) -> Pila[int]:
         res.put(numero)
     return res
 
-print(generar_nros_al_azar(3, 2, 5).get())
+numeros: Pila[int] = generar_nros_al_azar(3, 2, 5)
+print(numeros.get())
+print(numeros.get())
+print(numeros.get())
