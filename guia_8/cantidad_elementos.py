@@ -10,3 +10,10 @@ def cantidad_elementos(p: Pila) -> int:
     while not copia_aux_pila.empty():
         p.put(copia_aux_pila.get())
     return contador
+
+
+p: Pila = Pila()
+for i in range(5):
+    p.put(i)
+
+print(cantidad_elementos(p))

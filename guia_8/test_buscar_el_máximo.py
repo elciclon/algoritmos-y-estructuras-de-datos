@@ -43,3 +43,7 @@ class Test_buscar_el_máximo(unittest.TestCase):
         self.assertEqual(buscar_el_maximo(pila), -1)
         despues = pila_a_lista(pila)
         self.assertEqual(antes, despues)
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
