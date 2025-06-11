@@ -1,0 +1,4 @@
+perro
+gato
+luz # papel
+esto no es un comentario # esto tampoco

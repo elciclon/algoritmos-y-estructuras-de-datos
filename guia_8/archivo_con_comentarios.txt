@@ -1,0 +1,6 @@
+# comentario
+perro
+gato
+luz # papel
+# batata
+esto no es un comentario # esto tampoco
