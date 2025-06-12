@@ -1,3 +1,6 @@
+from math import sqrt
+
+
 def stock_productos(stock_cambios: list[tuple[str, int]]) -> dict[str, tuple[int, int]]:
     min_max_productos: dict[str, tuple[int, int]] = {}
 
@@ -17,3 +20,18 @@ def stock_productos(stock_cambios: list[tuple[str, int]]) -> dict[str, tuple[int
                 )
 
     return min_max_productos
+
+
+def es_primo(numero: int) -> bool:
+    for divisor in range(2, round(sqrt(numero) + 1)):
+        if numero % divisor == 0:
+            return False
+    return True
+
+
+def filtrar_codigos_primos(codigos_barra: list[int]) -> list[int]:
+    codigos_filtrados: list[int] = []
+    for codigo in codigos_barra:
+        if es_primo(codigo % 1000):
+            codigos_filtrados.append(codigo)
+    return codigos_filtrados
