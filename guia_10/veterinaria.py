@@ -35,3 +35,47 @@ def filtrar_codigos_primos(codigos_barra: list[int]) -> list[int]:
         if es_primo(codigo % 1000):
             codigos_filtrados.append(codigo)
     return codigos_filtrados
+
+
+def subsecuencia_mas_larga(tipos_pacientes_atendidos: list[str]) -> int:
+    subsecuencia: list[str] = []
+    subsecuencia_mas_larga: list[str] = []
+    indice: int = 0
+    indice_subsecuencia: int = 0
+    for paciente in tipos_pacientes_atendidos:
+        if paciente in ["gato", "perro"]:
+            subsecuencia.append(paciente)
+        else:
+            if len(subsecuencia) > len(subsecuencia_mas_larga):
+                subsecuencia_mas_larga = subsecuencia
+                subsecuencia = []
+                indice_subsecuencia = indice - len(subsecuencia_mas_larga)
+        indice += 1
+
+    return indice_subsecuencia
+
+
+def un_responsable_por_turno(
+    grilla_horaria: list[list[str]],
+) -> list[tuple[bool, bool]]:
+    hay_un_responsable: list[tuple[bool, bool]] = []
+    for columna in range(7):
+        mañana: bool = False
+        tarde: bool = False
+        if (
+            grilla_horaria[0][columna]
+            == grilla_horaria[1][columna]
+            == grilla_horaria[2][columna]
+            == grilla_horaria[3][columna]
+        ):
+            mañana = True
+        if (
+            grilla_horaria[4][columna]
+            == grilla_horaria[5][columna]
+            == grilla_horaria[6][columna]
+            == grilla_horaria[7][columna]
+        ):
+            tarde = True
+        hay_un_responsable.append((mañana, tarde))
+
+    return hay_un_responsable
