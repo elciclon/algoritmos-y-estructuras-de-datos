@@ -26,3 +26,28 @@ def tiempo_mas_rapido(tiempos_salas: list[int]) -> int:
             mas_rapido = tiempos_salas[i]
             indice = i
     return indice
+
+
+def racha_mas_larga(tiempos: list[int]) -> tuple[int, int]:
+    indice_inicio: int = 0
+    indice_fin: int = 0
+    mas_larga: list[int] = []
+    secuencia: list[int] = []
+    longitud_tiempos: int = len(tiempos)
+
+    for i in range(longitud_tiempos):
+        if tiempos[i] == 0 or tiempos[i] == 61:
+            if len(secuencia) > len(mas_larga):
+                mas_larga = secuencia
+                secuencia = []
+                indice_fin = i - 1
+                indice_inicio = i - len(mas_larga)
+        elif i == (longitud_tiempos - 1):
+            if len(secuencia) > len(mas_larga):
+                mas_larga = secuencia
+                indice_fin = i
+                indice_inicio = i - len(mas_larga) + 1
+        else:
+            secuencia.append(tiempos[i])
+
+    return (indice_inicio, indice_fin)

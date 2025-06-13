@@ -45,6 +45,27 @@ class sala_de_escapeTest(unittest.TestCase):
         tiempos_salas: list[int] = [0, 61, 44, 0, 24, 12, 61, 12]
         self.assertEqual(tiempo_mas_rapido(tiempos_salas), 5)
 
+    def test_racha_mas_larga(self):
+        tiempos: list[int] = [0, 10, 15, 0, 18, 17, 19, 14, 11, 0, 61, 30, 31, 32, 0]
+        tiempos_racha_final: list[int] = [
+            0,
+            12,
+            11,
+            0,
+            61,
+            20,
+            0,
+            61,
+            15,
+            23,
+            27,
+            30,
+            45,
+            40,
+        ]
+        self.assertEqual(racha_mas_larga(tiempos), (4, 8))
+        self.assertEqual(racha_mas_larga(tiempos_racha_final), (8, 13))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
