@@ -40,3 +40,11 @@ class sala_de_escapeTest(unittest.TestCase):
             "Julio": (0, 0.0),
         }
         self.assertEqual(promedio_de_salidas(registro_test_amplio), promedios)
+
+    def test_tiempo_mas_rapido(self):
+        tiempos_salas: list[int] = [0, 61, 44, 0, 24, 12, 61, 12]
+        self.assertEqual(tiempo_mas_rapido(tiempos_salas), 5)
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

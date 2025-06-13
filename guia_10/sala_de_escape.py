@@ -15,3 +15,14 @@ def promedio_de_salidas(registro: dict[str, list[int]]) -> dict[str, tuple[int, 
             promedios[amigo] = (rooms[amigo][1], rooms[amigo][0] / rooms[amigo][1])
 
     return promedios
+
+
+def tiempo_mas_rapido(tiempos_salas: list[int]) -> int:
+    mas_rapido: int = 61
+    indice: int = 0
+
+    for i in range(len(tiempos_salas)):
+        if tiempos_salas[i] < mas_rapido and tiempos_salas[i] != 0:
+            mas_rapido = tiempos_salas[i]
+            indice = i
+    return indice
