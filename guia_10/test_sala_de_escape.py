@@ -66,6 +66,18 @@ class sala_de_escapeTest(unittest.TestCase):
         self.assertEqual(racha_mas_larga(tiempos), (4, 8))
         self.assertEqual(racha_mas_larga(tiempos_racha_final), (8, 13))
 
+    def test_escape_en_solitario(self):
+        amigos_por_salas: list[list[int]] = [
+            [0, 0, 15, 0],
+            [0, 0, 0, 0],
+            [0, 0, 61, 0],
+            [0, 5, 10, 0],
+            [1, 0, 20, 0],
+            [0, 0, 30, 0],
+        ]
+        res: list[int] = [0, 2, 5]
+        self.assertEqual(escape_en_solitario(amigos_por_salas), res)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

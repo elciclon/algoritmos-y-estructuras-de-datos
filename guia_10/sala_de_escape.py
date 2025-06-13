@@ -51,3 +51,16 @@ def racha_mas_larga(tiempos: list[int]) -> tuple[int, int]:
             secuencia.append(tiempos[i])
 
     return (indice_inicio, indice_fin)
+
+
+def escape_en_solitario(amigos_por_salas: list[list[int]]) -> list[int]:
+    res: list[int] = []
+    for i in range(len(amigos_por_salas)):
+        if (
+            amigos_por_salas[i][0] == 0
+            and amigos_por_salas[i][1] == 0
+            and amigos_por_salas[i][3] == 0
+            and amigos_por_salas[i][2] != 0
+        ):
+            res.append(i)
+    return res
