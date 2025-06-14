@@ -26,6 +26,32 @@ class hospitalTest(unittest.TestCase):
             self.assertEqual(paciente, orden_atencion[indice])
             indice += 1
 
+    def test_alarma_epidemiologica(self):
+        registros: list[tuple[int, str]] = [
+            (1, "gripe"),
+            (2, "covid"),
+            (3, "dengue"),
+            (4, "covid"),
+            (6, "covid"),
+            (7, "gripe"),
+            (8, "dengue"),
+            (9, "covid"),
+            (11, "dengue"),
+        ]
+
+        infecciosas: list[str] = ["covid", "dengue", "gripe", "sarampión"]
+
+        umbral: float = 0.20
+
+        resultado: dict[str, float] = {
+            "covid": round(4 / 9, 2),
+            "dengue": round(3 / 9, 2),
+            "gripe": round(2 / 9, 2),
+        }
+        self.assertEqual(
+            alarma_epidemiologica(registros, infecciosas, umbral), resultado
+        )
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
