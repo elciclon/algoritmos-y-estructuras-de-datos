@@ -33,3 +33,18 @@ def alarma_epidemiologica(
             resultado_esperado[infecciosa] = porcentaje
 
     return resultado_esperado
+
+
+def empleado_del_mes(horas: dict[int, list[int]]) -> list[int]:
+    empleado_del_mes: list[int] = []
+    max_horas: int = 0
+    for empleado, horas_trabajadas in horas.items():
+        horas_totales: int = 0
+        for dia in horas_trabajadas:
+            horas_totales += dia
+        if horas_totales > max_horas:
+            max_horas = horas_totales
+            empleado_del_mes = [empleado]
+        elif horas_totales == max_horas:
+            empleado_del_mes.append(empleado)
+    return empleado_del_mes

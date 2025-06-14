@@ -52,6 +52,18 @@ class hospitalTest(unittest.TestCase):
             alarma_epidemiologica(registros, infecciosas, umbral), resultado
         )
 
+    def test_empleado_del_mes(self):
+        horas: dict[int, list[int]] = {
+            101: [8, 9, 8, 10],  # total 35
+            102: [9, 9, 9, 9],  # total 36
+            103: [7, 8, 8, 10],  # total 33
+            104: [9, 9, 9, 9],  # total 36
+        }
+
+        resultado_esperado: list[int] = [102, 104]
+
+        self.assertEqual(empleado_del_mes(horas), resultado_esperado)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
