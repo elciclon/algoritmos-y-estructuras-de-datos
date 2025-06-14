@@ -64,6 +64,16 @@ class hospitalTest(unittest.TestCase):
 
         self.assertEqual(empleado_del_mes(horas), resultado_esperado)
 
+    def test_nivel_de_ocupacion(self):
+        camas_por_piso: list[list[bool]] = [
+            [True, False, True],  # Piso 1: 2 ocupadas de 3
+            [True, True, True],   # Piso 2: 3 ocupadas de 3
+            [False, False, True], # Piso 3: 1 ocupada de 3
+        ]
+
+        resultado_esperado: list[float] = [2 / 3, 1.0, 1 / 3]
+
+        self.assertEqual(nivel_de_ocupacion(camas_por_piso), resultado_esperado)
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
