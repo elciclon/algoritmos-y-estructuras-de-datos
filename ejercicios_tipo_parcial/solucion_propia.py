@@ -1,4 +1,5 @@
 from math import sqrt
+from queue import Queue as Cola
 
 
 def maximas_cantidades_consecutivos(v: list[int]) -> dict[int, int]:
@@ -75,3 +76,20 @@ def maxima_cantidad_primos(matriz: list[list[int]]) -> int:
             maxima_cantidad = primos_en_columna
 
     return maxima_cantidad
+
+
+def tuplas_positivas_y_negativas(c: Cola[tuple[int, int]]) -> None:
+    positivas: Cola[tuple[int, int]] = Cola()
+    negativas: Cola[tuple[int, int]] = Cola()
+
+    while not c.empty():
+        tupla: tuple[int, int] = c.get()
+        if tupla[0] * tupla[1] > 0:
+            positivas.put(tupla)
+        elif tupla[0] * tupla[1] < 0:
+            negativas.put(tupla)
+
+    while not positivas.empty():
+        c.put(positivas.get())
+    while not negativas.empty():
+        c.put(negativas.get())
