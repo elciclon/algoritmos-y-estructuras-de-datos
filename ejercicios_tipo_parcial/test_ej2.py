@@ -1,8 +1,7 @@
 import unittest
-import ip_unittest
-from solucion import maxima_cantidad_primos
+from solucion_propia import maxima_cantidad_primos
 
-@ip_unittest.time_out_allmethods()
+
 class Ej2Test(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         super(Ej2Test, self).__init__(*args, **kwargs)

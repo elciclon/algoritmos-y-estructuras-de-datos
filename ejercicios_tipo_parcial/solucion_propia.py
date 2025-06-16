@@ -1,3 +1,6 @@
+from math import sqrt
+
+
 def maximas_cantidades_consecutivos(v: list[int]) -> dict[int, int]:
 
     res: dict[int, int] = {}
@@ -31,3 +34,44 @@ def maximas_cantidades_consecutivos(v: list[int]) -> dict[int, int]:
             subsecuencia.append(v[indice])
 
     return res
+
+
+def absoluto(numero: int) -> int:
+    if numero < 0:
+        return numero * -1
+    else:
+        return numero
+
+
+def es_primo(numero: int) -> bool:
+    if numero <= 1:
+        return False
+    for i in range(2, round(sqrt(absoluto(numero)) + 1)):
+        if numero % i == 0:
+            return False
+    return True
+
+
+def contar_primos(columna: list[int]) -> int:
+    contador: int = 0
+    for numero in columna:
+        if es_primo(numero):
+            contador += 1
+    return contador
+
+
+def devolver_columnas(indice_columna: int, matriz: list[list[int]]) -> list[int]:
+    columna: list[int] = []
+    for fila in matriz:
+        columna.append(fila[indice_columna])
+    return columna
+
+
+def maxima_cantidad_primos(matriz: list[list[int]]) -> int:
+    maxima_cantidad: int = 0
+    for indice in range(len(matriz[0])):
+        primos_en_columna: int = contar_primos(devolver_columnas(indice, matriz))
+        if primos_en_columna > maxima_cantidad:
+            maxima_cantidad = primos_en_columna
+
+    return maxima_cantidad
