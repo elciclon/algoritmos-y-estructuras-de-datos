@@ -93,3 +93,32 @@ def tuplas_positivas_y_negativas(c: Cola[tuple[int, int]]) -> None:
         c.put(positivas.get())
     while not negativas.empty():
         c.put(negativas.get())
+
+
+def resolver_cuenta(s: str) -> float:
+    operador: int = 1
+    numero: str = ""
+    resultado: float = 0
+    for indice in range(len(s)):
+        if indice == len(s) - 1:
+            numero += s[indice]
+            resultado += float(numero) * operador
+            return resultado
+
+        if indice == 0:
+            if s[indice] == "-":
+                operador = -1
+                continue
+            if s[indice] == "+":
+                operador = 1
+                continue
+        if s[indice] in "+-":
+            resultado += float(numero) * operador
+            numero = ""
+            if s[indice] == "-":
+                operador = -1
+            else:
+                operador = 1
+        else:
+            numero += s[indice]
+
